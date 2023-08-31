@@ -1,10 +1,13 @@
 import React from 'react';
+import CreatePost from '../CreatePost/CreatePost';
 
 const MainHome = () => {
     return (
-        <div>
-            <h1>this is the main home pages</h1>
-            <h1>this is the main home pages</h1>
+        <div className='pt-10 w-[750px]'>
+
+            <CreatePost/>
+            
+            <h1>this is the main home f;hodddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd pages</h1>
             <h1>this is the main home pages</h1>
             <h1>this is the main home pages</h1>
             <h1>this is the main home pages</h1>

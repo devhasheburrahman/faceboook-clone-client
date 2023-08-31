@@ -5,3 +5,8 @@
 ::-webkit-scrollbar {
     width: 0;
 }
+
+::placeholder {
+    color: blue;
+     
+}

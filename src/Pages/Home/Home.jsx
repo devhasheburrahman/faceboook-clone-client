@@ -1,10 +1,10 @@
 import React from 'react';
-import MainHome from '../Shared/LeftNavigation/MainHome/MainHome';
+import MainHome from '../MainHome/MainHome';
 
 
 const Home = () => {
     return (
-        <div className='flex justify-between h-[500px]'>
+        <div className='flex justify-between h-full'>
             <div className='h-full overflow-y-scroll '>
 
             </div>

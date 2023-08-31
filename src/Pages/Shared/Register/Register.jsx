@@ -7,7 +7,7 @@ const handleRegister = event => {
 
 const Register = () => {
     return (
-        <div className=" w-full rounded-lg mt-10 mx-auto text-center min-h-screen bg-white">
+        <div className=" w-[700px] rounded-lg mt-10 mx-auto text-center min-h-screen bg-white">
             <div className="hero-content flex-col lg:flex-row">
 
                 <div className=" flex-shrink-0 w-full  shadow-2xl bg-white">

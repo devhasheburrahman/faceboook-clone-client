@@ -12,7 +12,7 @@ const handleGoogle = () => {
 
 const Login = () => {
     return (
-        <div><div className="w-2/4 mt-10 rounded-lg mx-auto text-center min-h-screen bg-white">
+        <div><div className="w-[700px] mt-10 rounded-lg mx-auto text-center min-h-screen bg-white">
             <div className="hero-content flex-col lg:flex-row">
 
                 <div className=" w-full mb-5  bg-white">
