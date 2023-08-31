@@ -7,13 +7,13 @@ const handleRegister = event => {
 
 const Register = () => {
     return (
-        <div className="w-2/4 rounded-lg mt-10 mx-auto text-center min-h-screen bg-white">
+        <div className=" w-full rounded-lg mt-10 mx-auto text-center min-h-screen bg-white">
             <div className="hero-content flex-col lg:flex-row">
 
-                <div className="card flex-shrink-0 w-full  shadow-2xl bg-white">
+                <div className=" flex-shrink-0 w-full  shadow-2xl bg-white">
                     <form onSubmit={handleRegister}>
                         <div className="card-body">
-                            <h1 className="text-3xl font-bold"> Register Now!!</h1>
+                            <h1 className="text-3xl text-black font-bold">Create New Account!!</h1>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Your Name</span>

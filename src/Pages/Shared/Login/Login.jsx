@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaGoogle } from 'react-icons/fa';
+ 
 
 const handleLogin = event => {
     event.preventDefault();
@@ -12,11 +12,11 @@ const handleGoogle = () => {
 
 const Login = () => {
     return (
-        <div><div className="w-2/4 pt-10 mx-auto text-center min-h-screen bg-white">
+        <div><div className="w-2/4 mt-10 rounded-lg mx-auto text-center min-h-screen bg-white">
             <div className="hero-content flex-col lg:flex-row">
 
                 <div className=" w-full mb-5  bg-white">
-                   <img src="/facebook-logo.png" alt="" />
+                   <img className='h-full p-5' src="/facebook-logo.png" alt="" />
                     <form onSubmit={handleLogin}>
                         <div className="card-body">
                             <h1 className="text-xl text-black font-bold">Log in to Facebook</h1>
