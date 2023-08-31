@@ -1,11 +1,39 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Provaider/AuthProvider';
 
-const handleRegister = event => {
-    event.preventDefault();
-}
 
 const Register = () => {
+    const { createUser, setUser } = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
+
+    const handleRegister = event => {
+        event.preventDefault();
+        setError('')
+        const form = event.target;
+        const email = form.email.value;
+        const name = form.name.value;
+        const photo = form.photo.value;
+        const password = form.password.value;
+        console.log(name, email, password, photo);
+
+        createUser(email, password)
+            .then(result => {
+                const createUser = result.user;
+                setUser(createUser);
+                event.target.reset();
+                setSuccess('Successfully Create Account')
+
+            })
+            .catch(error => {
+                setError(error.message);
+            })
+
+    }
+
+
+
     return (
         <div className=" w-[700px] rounded-lg mt-10 mx-auto text-center min-h-screen bg-white">
             <div className="hero-content flex-col lg:flex-row">
@@ -38,14 +66,14 @@ const Register = () => {
                                 </label>
                                 <input type="text" name='photo' placeholder=" Photo Url" required className="input input-bordered bg-white" />
                             </div>
-                            {/* <p className='text-red-500'> {error}</p>
-                            <p className='text-success'> {success}</p> */}
+                            <p className='text-red-500'> {error}</p>
+                            <p className='text-success'> {success}</p>
                             <div className="form-control mt-6">
                                 <input className="bg-[#07A717] rounded-lg text-white font-semibold py-[10px]" type="submit" value="Sign Up" />
                             </div>
                         </div>
                     </form>
-                    <p className='my-4 text-center'>Already have an account? Please<Link className='text-primary font-bold' to='/login'>Login</Link></p>
+                    <p className='my-4 text-center'>Already have an account? Please<Link className='text-[#0339F9] font-bold' to='/login'>Login</Link></p>
                 </div>
             </div>
         </div>

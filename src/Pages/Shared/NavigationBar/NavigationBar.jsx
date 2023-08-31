@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FiBell, FiChevronRight, FiGift, FiHelpCircle, FiHome, FiSettings, FiUpload, FiUsers, FiYoutube } from "react-icons/fi";
 import { FaFacebookMessenger } from "react-icons/fa";
+import { AuthContext } from '../../../Provaider/AuthProvider';
+
 
 
 const NavigationBar = () => {
+
+    const { logOut,user,setUser } = useContext(AuthContext);
+
+    const handleLogout = () => {
+        logOut();
+    }
+
     return (
         <div>
             <div className="navbar bg-white shadow-lg px-5">
@@ -68,7 +77,7 @@ const NavigationBar = () => {
 
                                 <li className='font-bold text-black'><Link to='/setting'> <FiSettings /> Setting <FiChevronRight /></Link></li>
                                 <li className='font-bold text-black'><Link to='/support'> <FiHelpCircle /> Help And Support <FiChevronRight /> </Link></li>
-                                <li className='font-bold text-black'><Link to='/login'> <FiUpload /> Logout</Link></li>
+                                <button onClick={handleLogout}><li className='font-bold text-black'><Link to='/login'> <FiUpload /> Logout</Link></li></button>
 
                             </ul>
                         </div>
