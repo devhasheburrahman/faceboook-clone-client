@@ -27,8 +27,8 @@ const Login = () => {
                 .then(result => {
                     const loggedUser = result.user;
                     event.target.reset();
-                    setUser(loggedUser);
-                    console.log(loggedUser);
+                    // setUser(loggedUser);
+                    // console.log(loggedUser);
                     navigate('/');
                     setSuccess('successfully LogIn !!')
                 })
@@ -42,7 +42,7 @@ const Login = () => {
             .then((result) => {
                 console.log(result);
                 const loggedUser = result.user;
-                // setUser(loggedUser)
+                setUser(loggedUser)
                 setSuccess('Successfully Login !!')
                 navigate('/')
             })

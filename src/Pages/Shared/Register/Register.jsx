@@ -13,10 +13,10 @@ const Register = () => {
         setError('')
         const form = event.target;
         const email = form.email.value;
-        const name = form.name.value;
-        const photo = form.photo.value;
+        const displayName = form.name.value;
+        const photoURL = form.photo.value;
         const password = form.password.value;
-        console.log(name, email, password, photo);
+        console.log(displayName, email, password, photoURL);
 
         createUser(email, password)
             .then(result => {
