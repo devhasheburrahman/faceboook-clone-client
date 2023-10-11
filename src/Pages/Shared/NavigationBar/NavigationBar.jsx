@@ -1,24 +1,38 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { FiBell, FiChevronRight, FiGift, FiHelpCircle, FiHome, FiSettings, FiUpload, FiUsers, FiYoutube } from "react-icons/fi";
 import { FaFacebookMessenger } from "react-icons/fa";
 import { AuthContext } from '../../../Provaider/AuthProvider';
+import { SERVER_URL } from '../../../Config/constant';
 
 
 
 const NavigationBar = () => {
+    const [item, setItem] = useState('')
+    // const { logOut, user } = useContext(AuthContext);
+    const navigate = useNavigate()
 
-    const { logOut,user,setUser } = useContext(AuthContext);
+    useEffect(() => {
+        const user = JSON.parse(localStorage.getItem("user"))
+        setItem(user)
+    }, [])
+    console.log(item);
+
+    // useEffect(() => {
+    //     if (!user) return navigate('/login')
+    // }, [])
+
 
     const handleLogout = () => {
-        logOut();
+        localStorage.clear();
+        // navigate('/logIn')
     }
 
     return (
         <div>
-            <div className="navbar bg-white shadow-lg px-5">
+            <div className="navbar bg-white  shadow-lg px-5">
                 <div className="flex-1">
-                    <img className='h-10' src="/logo.png" alt="" />
+                    <Link to="/"><img className='h-10' src="/logo.png" alt="" /></Link>
                     <div className="form-control">
                         <div className="input-group">
                             <input type="text" placeholder="Search…" className="input outline-none  bg-slate-200 ml-2 " />
@@ -28,7 +42,7 @@ const NavigationBar = () => {
                         </div>
                     </div>
                     <div className='flex  ml-10  items-center gap-24'>
-                        <p title='Home' ><Link> <FiHome className='text-[30px] text-slate-500 hover:bg-slate-400' /></Link></p>
+                        <p title='Home' ><Link to="/"> <FiHome className='text-[30px] text-slate-500 hover:bg-slate-400' /></Link></p>
 
                         <p title='Friend' ><Link to='/addFriend'> <FiUsers className='text-[30px] text-slate-500 hover:bg-slate-400' /></Link></p>
                         <p title='Video' ><Link to='/video'> <FiYoutube className='text-[30px] text-slate-500 hover:bg-slate-400' /></Link></p>
@@ -56,10 +70,11 @@ const NavigationBar = () => {
                         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
                         <div className="drawer-content">
                             {/* Page content here */}
-
                             <label htmlFor="my-drawer-4" tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
-                                    <img src="https://i.ibb.co/Ybc5Jqs/home-banner.png" />
+                                <div className='avatar'>
+                                    <div className="w-10 rounded-full">
+                                        <img src={item?.photo} />
+                                    </div>
                                 </div>
                             </label>
                         </div>
@@ -68,10 +83,14 @@ const NavigationBar = () => {
                             <ul className="menu p-4 w-80 min-h-full bg-white text-base-content">
                                 {/* Sidebar content here */}
                                 <li className='shadow-sm font-bold text-black'><Link to='/profile'>
-                                    <div className="w-10 rounded-full">
-                                        <img src="https://i.ibb.co/Ybc5Jqs/home-banner.png" />
+                                    <div className='avatar'>
+                                        <div className="w-10 rounded-full">
+                                            <img src={item?.photo} />
+
+                                            {/* <img src={`${SERVER_URL}/${user.photo}`} alt="" /> */}
+                                        </div>
                                     </div>
-                                    <h1>Md Hashebur Rahman</h1>
+                                    <h1>{item?.userName}</h1>
 
                                 </Link></li>
 

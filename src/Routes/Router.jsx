@@ -27,14 +27,7 @@ const router = createBrowserRouter([
                 path: '/profile',
                 element: <Profile />
             },
-            {
-                path: '/register',
-                element:<Register/>
-            },
-            {
-                path: '/login',
-                element: <Login />
-            },
+
             {
                 path: '/setting',
                 element: <Setting />
@@ -42,10 +35,11 @@ const router = createBrowserRouter([
             {
                 path: '/addFriend',
                 element: <AddPeople />
+
             },
             {
                 path: '/video',
-                element: <Video />
+                element: <AddPeople />
             },
             {
                 path: '/group',
@@ -55,9 +49,20 @@ const router = createBrowserRouter([
                 path: '/market-please',
                 element: <MarketPlease />
             },
+            {
+                path: '/login',
+                element: <Login />
+            },
+            {
+                path: '/register',
+                element: <Register />
+            },
+
         ]
-        
+
+
     },
+
 ]);
 
 export default router;

@@ -1,15 +1,25 @@
-import React from 'react'; 
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Provaider/AuthProvider';
 
 const LeftNavigation = () => {
+
+    const [user, setUser] = useState([]);
+    useEffect(() => {
+        const person = JSON.parse(localStorage.getItem("user"))
+        setUser(person)
+    }, [])
+
     return (
         <div className='bg-white w-[300px] pt-5 h-full overflow-scroll px-5'>
             {/* profile section */}
             <Link to='/profile'> <div className='flex items-center gap-3'>
-                <div className="w-10 rounded-full">
-                    <img src="https://i.ibb.co/Ybc5Jqs/home-banner.png" />
+                <div className="avatar online">
+                    <div className="w-10 rounded-full">
+                        <img src={user?.photo} />
+                    </div>
                 </div>
-                <h1 className='font-semibold text-black'>Hashebur Rahman</h1>
+                <h1 className='font-semibold text-black'> {user?.userName}</h1>
             </div></Link>
 
             <div className='my-5'>
@@ -52,12 +62,11 @@ const LeftNavigation = () => {
             {/* short cut section */}
             <p className='text-base font-semibold '>Your ShortCuts</p>
 
-            <Link to='/'> <div className='flex hover:bg-slate-200 items-center gap-3'>
+            <div className='flex hover:bg-slate-200 items-center gap-3'>
                 <div className="w-10 rounded-full">
                     <img className='p-1 rounded-full' src="/programming.png" />
                 </div>
-                <h1 className='font-semibold text-black'>Programming Agency</h1>
-            </div></Link>
+                <a target='_blank' className='font-semibold text-black' href="https://www.programming-agency.com/">Programming Agency</a></div>
         </div>
 
 
