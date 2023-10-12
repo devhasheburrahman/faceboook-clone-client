@@ -85,7 +85,7 @@ export default function Write() {
             const data = { ...formValues, images };
             console.log(data);
             const result = await axios.post('/api/posts/create', data)
-            navigate('/')
+            navigate('/addFriend')
             console.log(result);
 
         } catch (error) {
@@ -93,20 +93,17 @@ export default function Write() {
             setError(error.response.data.message)
         }
     };
-
-
-
     return (
         <div >
-            <form onSubmit={handleSubmit} style={{ display: 'flex', justifyContent: 'center' }}>
+            <form onSubmit={handleSubmit} className="w-full">
                 <Paper className="p-5" >
 
                     <h2 className="text-center text-xl font-bold">Create post</h2>
 
                     <TextField onChange={handleChange} name="content" multiline placeholder="What is on your mind ?" rows={7} id="fileInput" style={{ marginTop: '20px', marginBottom: '20px' }} fullWidth variant="outlined" required />
                     <div className="grid grid-cols-3 gap-4 py-5">
-                        {file.map((item, index) => (<div key={index} className="h-[100px] col-span-1  rounded-lg ">
-                            <img src={URL.createObjectURL(item)} alt="" />
+                        {file.map((item, index) => (<div key={index} className="h-[100px] mb-5 col-span-1  rounded-lg ">
+                            <img className="h-[120px] " src={URL.createObjectURL(item)} alt="" />
                         </div>))}
                     </div>
                     <TextField id="fileInput" type="file" onChange={handleFile} fullWidth variant="outlined" required />

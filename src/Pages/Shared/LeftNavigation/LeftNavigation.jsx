@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Provaider/AuthProvider';
+import { Paper } from '@mui/material';
 
 const LeftNavigation = () => {
 
@@ -11,7 +12,7 @@ const LeftNavigation = () => {
     }, [])
 
     return (
-        <div className='bg-white w-[300px] pt-5 h-full overflow-scroll px-5'>
+        <Paper className='bg-white w-[300px] pt-5 h-full overflow-scroll px-5'>
             {/* profile section */}
             <Link to='/profile'> <div className='flex items-center gap-3'>
                 <div className="avatar online">
@@ -62,12 +63,13 @@ const LeftNavigation = () => {
             {/* short cut section */}
             <p className='text-base font-semibold '>Your ShortCuts</p>
 
-            <div className='flex hover:bg-slate-200 items-center gap-3'>
+            <Paper className='flex hover:bg-slate-200 items-center gap-3'>
                 <div className="w-10 rounded-full">
                     <img className='p-1 rounded-full' src="/programming.png" />
                 </div>
-                <a target='_blank' className='font-semibold text-black' href="https://www.programming-agency.com/">Programming Agency</a></div>
-        </div>
+                <a target='_blank' className='font-semibold text-black' href="https://www.programming-agency.com/">Programming Agency</a>
+                </Paper>
+        </Paper>
 
 
     );

@@ -14,7 +14,7 @@ const RightNavigation = () => {
 
 
     return (
-        <div className='bg-white p-3  h-full  '>
+        <div className='bg-white p-3  h-screen   '>
             <Link to='/profile'>
                 <div className='flex shadow-2xl  items-center gap-3'>
                     <div className='avatar'>

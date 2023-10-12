@@ -1,9 +1,13 @@
 import React from 'react';
+import CreatePost from '../CreatePost/CreatePost';
+import Post from '../CreatePost/Post/Post';
 
 const AddPeople = () => {
     return (
-        <div>
-            <h1>Coming soon</h1>
+        <div className='pt-2 w-[750px]'>
+
+            {/* <CreatePost /> */}
+            <Post />
         </div>
     );
 };

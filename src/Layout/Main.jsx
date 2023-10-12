@@ -12,17 +12,17 @@ const Main = () => {
     const noHeaderFooter = location.pathname.includes('login') || location.pathname.includes('register')
     return (
 
-        <div>
+        <div className='bg-slate-100'>
             {noHeaderFooter || <NavigationBar />}
-            <div className='flex justify-between h-[500px]'>
+            <div className='flex justify-between h-screen'>
                 <div className='h-full overflow-y-scroll '>
                    { noHeaderFooter|| <LeftNavigation />}
                 </div>
-                <div className='h-[100vh] overflow-y-scroll  scrollbar-w-0' >
+                <div className='h-screen overflow-y-scroll  scrollbar-w-0' >
                     <Outlet />
                     {/* <MainHome /> */}
                 </div>
-                <div className='h-full overflow-y-scroll'>
+                <div className='h-screen overflow-y-scroll'>
                   {noHeaderFooter||  <RightNavigation />}
                 </div>
             </div>
